@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="js/main.js"></script>
+    <script src="js/moment.min.js" ></script>
+    <title>Calculador Cuotas</title>
+</head>
+<body>
+    <div id="appi">
+        <div class="container col-4" >
+            <h1>Calculador de Cuotas</h1>
+            <form >
+                <div class="center row">
+                    <div class="mb-2">
+                    <label for="anio">Año en curso</label>
+                    <select required class="form-select" name="anio" id="" v-model="anio">
+                        <option :value="item.value" v-for="item in anios">
+                            {{item.name}}
+                        </option>
+                    </select>
+                    </div>                
+                    <div class="mb-2">
+                    <label for="mes">Mes que abona</label>
+                    <select required class="form-select" name="mes" id="" v-model="mes">
+                        <option :value="item.value" v-for="item in meses">
+                            {{item.name}}
+                        </option>
+                    </select>
+                    </div>                
+                    <div class="mb-2">
+                        <label for="fecha">Fecha que abona</label> 
+                        <input required class="form-control" type="date" v-model="fecha"  name="fecha" id="">
+                    </div>
+                    <div class="mb-2">
+                    <label for="total">Total</label>
+                    <input disabled class="form-control" type="number" v-model="total" name="total">
+                    </div>
+                    <div class="mb-2" style="text-align: right;">
+                        <button class="btn btn-primary" type="button" @click="calcular" >Calcular</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+<script>
+    app.mount("#appi");
+</script>
+<style>
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+</html>
